@@ -1,4 +1,4 @@
-## Zero To Hero API
+## Zero To Hero
 
 ### Description
 
