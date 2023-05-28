@@ -15,7 +15,7 @@ class MahaMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        dump('Hey Maha Middleware');
+        //dump('Hey Maha Middleware');
         return $next($request);
     }
 }
