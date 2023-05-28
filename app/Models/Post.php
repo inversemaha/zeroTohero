@@ -12,4 +12,14 @@ class Post extends Model
     protected $casts = [
         'body' => 'array',
     ];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, foreignKey: 'post_id');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'post_user', 'post_id', 'user_id'); // (related, pivot table, foreign key, related key)
+    }
 }
