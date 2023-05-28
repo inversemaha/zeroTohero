@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('comments', function (Blueprint $table) {
-            $table->id();
-            $table->json('body')->nullable();
-            $table->UnsignedBigInteger('user_id');
-            $table->UnsignedBigInteger('post_id');
+        Schema::create('post_user', function (Blueprint $table) {
+            $table->UnsignedBigInteger('user_id')->index();
+            $table->UnsignedBigInteger('post_id')->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->timestamps();
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('post_user');
     }
 };
